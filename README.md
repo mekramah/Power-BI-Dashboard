@@ -30,3 +30,5 @@ Few queries in Power BI (Power Query):
    
 2. To change USD to INR
    = Table.AddColumn(#"Filtered Rows", "norm_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then [sales_amount]*75 else [sales_amount])
+
+https://app.powerbi.com/reportEmbed?reportId=1840a63c-b28b-469b-bc87-09f4168f7e68&autoAuth=true&ctid=8ffae2e5-6ff0-4510-bbf3-ca842d7ca55e
