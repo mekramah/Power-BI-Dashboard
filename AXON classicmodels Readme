@@ -6,3 +6,42 @@ Goal:
 Implement a BI solution that can help the company to manage and analyze sales effectively.
 
 DAX Queries for KPIs:
+1. Selling price of all the products
+SP = SUMX('classicmodels products', 'classicmodels products'[MSRP] * 'classicmodels products'[quantityInStock])
+
+2. Total Sales of the Product
+Total Sales = 'classicmodels products'[SP]
+
+3. Total Profit
+CP = SUMX('classicmodels products', 'classicmodels products'[buyPrice]*'classicmodels products'[quantityInStock])
+Total Profit = [SP]-[CP]
+
+4. Total Customers
+Total Customers = DISTINCTCOUNT('classicmodels customers'[customerNumber])
+
+5. Total Products
+Total Products = DISTINCTCOUNT('classicmodels products'[productCode])
+
+6. Total Orders
+Total Orders = DISTINCTCOUNT('classicmodels orders'[orderNumber])
+
+7. Total Customers
+Total Customers = DISTINCTCOUNT('classicmodels customers'[customerNumber])
+
+8.Total Employees
+Total Employees = DISTINCTCOUNT('classicmodels employees'[employeeNumber])
+
+9.Total Shipped Orders
+Total Shipped Orders = COUNTAX(FILTER('classicmodels orders',[status]="Shipped"),[customerNumber])
+
+10. Total Cancelled Orders
+Total Cancelled Orders = COUNTAX(FILTER('classicmodels orders', [status]="Cancelled"),[customerNumber])
+
+SUMMARY:
+1. Classic cars and Vintage cars are most sales by product line
+2. The USA has the highest revenue and sales in these years 2003, 2004 and 2005 as followed Spain, France and Australia.
+3. The most top customer was Mini Gift Distributors Ltd and next was Euro+ shopping channel.
+4. The sales trend during the period of 2003-2005, the November month is the peak month because November is the Thanksgiving month so 
+sales went up.
+5. The total cost made by product line was highest for Classic cars by 42.41% among vintage cars, planes, motorcycles, ships, trucks and 
+trains. Next is the vintage cars
